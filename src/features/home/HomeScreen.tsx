@@ -3,6 +3,7 @@ import { ScrollView, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Greeting } from '../../components/home/Greeting';
 import { HomeHeader } from '../../components/home/Header';
+import { HeroCard } from '../../components/home/HeroCard';
 import { SearchBar } from '../../components/home/SearchBar';
 import { colors } from '../../theme';
 import { SideMenu, type MenuKey } from '../menu/SideMenu';
@@ -33,6 +34,9 @@ export function HomeScreen() {
         <HomeHeader hasUnread onMenuPress={() => setMenuVisible(true)} />
         <Greeting name={USER_NAME} />
         <SearchBar value={query} onChangeText={setQuery} />
+        <HeroCard onReservePress={() => {
+        // TODO: ir a la pantalla de estacionamiento cuando exista
+}} />
       </ScrollView>
 
       <SideMenu
