@@ -1,5 +1,5 @@
 import { Pressable, StyleSheet, Text, type PressableProps } from 'react-native';
-import { colors, fonts, radius } from '../theme';
+import { colors, fonts, radius } from '../../theme';
 
 type Props = Omit<PressableProps, 'children'> & {
   label: string;

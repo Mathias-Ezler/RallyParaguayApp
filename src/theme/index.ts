@@ -11,6 +11,8 @@ export const colors = {
   accent: '#C2410C',
   accentSoft: '#FFE9DC',
   success: '#166534',
+  textdark: '#000000',
+  textwhite: '#ffffff',
 } as const;
 
 // Los nombres coinciden con los que registra useFonts en app/_layout.tsx

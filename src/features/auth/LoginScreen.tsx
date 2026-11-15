@@ -9,8 +9,8 @@ import {
     View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Button } from '../../components/Button';
-import { TextField } from '../../components/TextField';
+import { Button } from '../../components/ui/Button';
+import { TextField } from '../../components/ui/TextField';
 import { colors, fonts } from '../../theme';
 import { useLogin } from './useLogin';
   
