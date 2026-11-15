@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { SearchBar } from '../../components/home//SearchBar';
 import { Greeting } from '../../components/home/Greeting';
 import { HomeHeader } from '../../components/home/Header';
+import { SearchBar } from '../../components/home/SearchBar';
 import { colors } from '../../theme';
+import { SideMenu, type MenuKey } from '../menu/SideMenu';
 
 // TODO: tomar el nombre de la sesión cuando exista backend
 const USER_NAME = 'Mathias Nahuel';
@@ -12,20 +13,35 @@ const USER_NAME = 'Mathias Nahuel';
 export function HomeScreen() {
   const insets = useSafeAreaInsets();
   const [query, setQuery] = useState('');
+  const [menuVisible, setMenuVisible] = useState(false);
+
+  const handleMenuSelect = (key: MenuKey) => {
+    // TODO: navegar a cada pantalla cuando existan
+    console.log('Menú:', key);
+  };
 
   return (
-    <ScrollView
-      style={styles.screen}
-      contentContainerStyle={[
-        styles.content,
-        { paddingTop: insets.top + 16, paddingBottom: insets.bottom + 24 },
-      ]}
-      keyboardShouldPersistTaps="handled"
-      showsVerticalScrollIndicator={false}>
-      <HomeHeader hasUnread />
-      <Greeting name={USER_NAME} />
-      <SearchBar value={query} onChangeText={setQuery} />
-    </ScrollView>
+    <>
+      <ScrollView
+        style={styles.screen}
+        contentContainerStyle={[
+          styles.content,
+          { paddingTop: insets.top + 16, paddingBottom: insets.bottom + 24 },
+        ]}
+        keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}>
+        <HomeHeader hasUnread onMenuPress={() => setMenuVisible(true)} />
+        <Greeting name={USER_NAME} />
+        <SearchBar value={query} onChangeText={setQuery} />
+      </ScrollView>
+
+      <SideMenu
+        visible={menuVisible}
+        onClose={() => setMenuVisible(false)}
+        userName={USER_NAME}
+        onSelect={handleMenuSelect}
+      />
+    </>
   );
 }
 
