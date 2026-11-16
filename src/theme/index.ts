@@ -13,6 +13,7 @@ export const colors = {
   success: '#166534',
   textdark: '#000000',
   textwhite: '#ffffff',
+  textdarkMuted: '#4A5A6B',
 } as const;
 
 // Los nombres coinciden con los que registra useFonts en app/_layout.tsx
