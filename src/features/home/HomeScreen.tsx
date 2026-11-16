@@ -46,9 +46,7 @@ export function HomeScreen() {
 
         <PlacesSection
           places={MOCK_PLACES}
-          onSeeAll={() => {
-            // TODO: abrir la página de lugares
-          }}
+          onSeeAll={() => router.push('/lugares')}
           onPlacePress={(place) => {
             // TODO: abrir el detalle del lugar
             console.log('Lugar:', place.id);
